@@ -11,8 +11,9 @@ public class KafkaConsumerService {
 
     private static final Logger logger = LoggerFactory.getLogger(KafkaConsumerService.class);
 
-    @KafkaListener(topics = ApplicationConstant.TOPIC_NAME)
+    @KafkaListener(topics = ApplicationConstant.TOPIC_NAME_2, groupId = ApplicationConstant.GROUP_ID)
     public void consume(String message) {
+        System.out.println("ok");
         logger.info(String.format("Message received -> %s", message));
     }
 }

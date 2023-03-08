@@ -21,7 +21,7 @@ public class KafkaProducerService {
 
     public void sendMessage(String message) {
         logger.info(String.format("Message sent -> %s", message));
-        ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(ApplicationConstant.TOPIC_NAME, message);
+        ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(ApplicationConstant.TOPIC_NAME_2, message);
         System.out.println(send);
     }
 }

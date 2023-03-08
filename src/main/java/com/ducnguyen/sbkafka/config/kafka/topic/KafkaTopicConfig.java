@@ -11,6 +11,11 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic topic1() {
-        return TopicBuilder.name(ApplicationConstant.TOPIC_NAME).build();
+        return TopicBuilder.name(ApplicationConstant.TOPIC_NAME_2).build();
+    }
+
+    @Bean
+    public NewTopic topic2() {
+        return TopicBuilder.name(ApplicationConstant.TOPIC_NAME_2).build();
     }
 }
