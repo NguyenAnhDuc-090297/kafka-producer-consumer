@@ -4,9 +4,9 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     environment:
-      ZOOKEEPER_CLIENT_PORT : 6181
+      ZOOKEEPER_CLIENT_PORT : 2181
     ports:
-      - "6181:6181"
+      - "2181:2181"
 
   kafka:
     image: confluentinc/cp-kafka:latest
