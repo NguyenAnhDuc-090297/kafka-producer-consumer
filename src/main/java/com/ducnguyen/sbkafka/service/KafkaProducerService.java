@@ -1,6 +1,7 @@
 package com.ducnguyen.sbkafka.service;
 
 import com.ducnguyen.sbkafka.constant.ApplicationConstant;
+import com.ducnguyen.sbkafka.dto.WatchLogDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -22,6 +23,12 @@ public class KafkaProducerService {
     public void sendMessage(String message) {
         logger.info(String.format("Message sent -> %s", message));
         ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(ApplicationConstant.TOPIC_NAME_2, message);
+        System.out.println(send);
+    }
+
+    public void streamMessage(String key, String message) {
+        logger.info(String.format("Message sent -> %s", message));
+        ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(ApplicationConstant.TOPIC_STREAM_INPUT, key, message);
         System.out.println(send);
     }
 }
