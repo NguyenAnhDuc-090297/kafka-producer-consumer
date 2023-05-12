@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/kafka")
 public class KafkaProducerController {
@@ -26,9 +28,7 @@ public class KafkaProducerController {
 
     @PostMapping("/stream")
     public ResponseEntity<String> streamMessage(@RequestBody WatchLogDto watchLogDto) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        String message = mapper.writeValueAsString(watchLogDto);
-        kafkaProducerService.streamMessage(watchLogDto.getVideoId().toString(), message);
-        return ResponseEntity.ok("Message sent to kafka topic");
+        kafkaProducerService.streamMessage(watchLogDto);
+        return ResponseEntity.ok("Message sent to kafka stream");
     }
 }
