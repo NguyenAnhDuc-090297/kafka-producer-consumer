@@ -57,8 +57,7 @@
 
         <dependency>
             <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.32</version>
+            <artifactId>mysql-connector-java</artifactI
         </dependency>
 
         <!-- lib to calculate the size of object -->
